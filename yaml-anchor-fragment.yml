@@ -1,0 +1,13 @@
+# Anchor definition with &
+frontend_paths: &frontend_paths
+  - "src/frontend/**"
+  - "src/shared/**"
+  - "package.json"
+  - "yarn.lock"
+
+# Alias reference with *
+on:
+  push:
+    paths: *frontend_paths
+  pull_request:
+    paths: *frontend_paths
