@@ -1,4 +1,7 @@
 name: CI/CD Pipeline V2
+
+# Define aliases at the top level
+    
 on:
   push:
     paths: &frontend_paths
@@ -18,12 +21,12 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4 
+      - &node_setup
+        uses: actions/setup-node@v4 
         with:
           node-version: 18
           cache: 'npm'
           registry-url: 'https://npm.pkg.github.com'
-        <<: &node_setup
 
   build:
     runs-on: ubuntu-latest
