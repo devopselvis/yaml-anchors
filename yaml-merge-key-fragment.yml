@@ -1,0 +1,8 @@
+# THIS DOESN'T WORK in GitHub Actions
+base_config: &base
+  timeout: 30
+  retries: 3
+
+job1:
+  <<: *base
+  timeout: 60  # Override just the timeout
